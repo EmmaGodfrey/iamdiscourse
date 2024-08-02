@@ -6,11 +6,12 @@
 <div class="container my-4">
   <h2 class="mb-4">Resources</h2>
   <div class="row">
+    <!-- Column for Links -->
     <div class="col-md-6">
       <h3 class="mb-3">Links</h3>
       <ul class="list-group">
         {% for resource in resources %}
-          {% if resource.resource_type == 'link' %}
+          {% if resource.resource_type == 'url' %}
             <li class="list-group-item">
               <a href="{{ resource.url }}" target="_blank" rel="noopener noreferrer">{{ resource.title }}</a>
               <p class="mb-0">{{ resource.description }}</p>
@@ -19,14 +20,17 @@
         {% endfor %}
       </ul>
     </div>
+    <!-- Column for Books -->
     <div class="col-md-6">
       <h3 class="mb-3">Books</h3>
       <ul class="list-group">
         {% for resource in resources %}
-          {% if resource.resource_type == 'download' %}
-            <li class="list-group-item">
-              <a href="{% url 'download_file' file_id=resource.id %}" class="btn btn-primary">Download {{ resource.title }}</a>
-              <p class="mb-0">{{ resource.description }}</p>
+          {% if resource.resource_type == 'file' %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <div>
+                <p class="mb-1">{{ resource.description }}</p>
+                <a class="btn btn-secondary" href="{{ resource.file.url }}" class="btn btn-custom-purple">Download</a>
+              </div>
             </li>
           {% endif %}
         {% endfor %}

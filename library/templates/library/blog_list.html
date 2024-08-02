@@ -1,24 +1,22 @@
 {% extends 'library/base.html' %}
 
 {% block title %}Blog - Quantum Being Coach{% endblock %}
+{% load static %}
 
 {% block content %}
-    <div class="container">
-        <h2 class="my-4">Blog</h2>
+    <div class="container my-5">
+        <h2 class="text-center mb-4">Blog</h2>
         <div class="row">
             {% for post in blog_posts %}
-                <div class="col-md-4 mb-4">
-                    <div class="card shadow-sm">
-                        <div class="card-body">
-                            <h3 class="card-title">
-                                <a href="{% url 'blog_detail' post.pk %}" class="text-decoration-none text-primary">
-                                    {{ post.title }}
-                                </a>
-                            </h3>
-                            <p class="card-text">
-                                {{ post.content|slice:":200" }}...
-                            </p>
-                        </div>
+                <div class="col-md-6 mb-4">
+                    <div class="d-flex flex-column h-100 bg-light rounded shadow-sm p-3">
+                        <!-- Display the publication date and time -->
+                        <p class="text-muted mb-2">Published on {{ post.published_at|date:"F j, Y, g:i A" }}</p>
+                        
+                        <h3 class="h4 mb-2">{{ post.title }}</h3>
+                        <p class="mb-3">
+                            {{ post.content }}
+                        </p>
                     </div>
                 </div>
             {% endfor %}

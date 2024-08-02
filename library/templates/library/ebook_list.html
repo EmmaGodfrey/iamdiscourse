@@ -1,25 +1,88 @@
-{% extends 'library/base.html' %}
-
-{% block title %}E-books - Quantum Being Coach{% endblock %}
-
-{% block content %}
-    <div class="container">
-        <h2 class="my-4">E-books</h2>
-        <div class="row">
-            {% for ebook in ebooks %}
-                <div class="col-md-4 mb-4">
-                    <div class="card shadow-sm">
-                        <div class="card-body">
-                            <h3 class="card-title">
-                                <a href="{% url 'ebook_detail' ebook.pk %}" class="text-decoration-none text-primary">
-                                    {{ ebook.title }}
-                                </a>
-                            </h3>
-                            <p class="card-text">{{ ebook.description }}</p>
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
+{% extends 'library/base.html' %} {% block title %}E-books - Quantum Being
+Coach{% endblock %} {% load static %} {% block content %}
+<div class="container my-5">
+  <h2 class="text-center mb-4">E-books</h2>
+  <div class="row">
+    {% for ebook in ebooks %}
+    <div class="col-md-4 mb-4">
+      <div class="card shadow-sm">
+        <img
+          src="{% static 'images/default.jpg' %}"
+          class="card-img-top"
+          alt="{{ ebook.title }}"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ ebook.title }}</h5>
+          <p class="card-text">{{ ebook.description |slice:20 }}...</p>
+          <div style="font-size: 12px;">
+            {% if ebook.pdf_file %}
+            <p><i class="bi bi-file-earmark-pdf"> File available for Download</i></p>
+            {% endif %} {% if ebook.audio_file %}
+            <p><i class="bi bi-file-earmark-music"> Audio available for Download</i></p>
+            {% endif %}
+          </div>
+          <a
+            href="#"
+            style="width: 100%;"
+            class="btn btn-purple"
+            data-bs-toggle="modal"
+            data-bs-target="#ebookModal{{ ebook.pk }}"
+            >More Info</a
+          >
         </div>
+      </div>
     </div>
+
+    <!-- Modal for each ebook -->
+    <div
+      class="modal fade"
+      id="ebookModal{{ ebook.pk }}"
+      tabindex="-1"
+      aria-labelledby="ebookModalLabel{{ ebook.pk }}"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="ebookModalLabel{{ ebook.pk }}">
+              {{ ebook.title }}
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>Description</p>
+            <hr>
+            <p>{{ ebook.description }}</p>
+            <hr>
+            <div class="mb-3 d-flex justify-content-between">
+              {% if ebook.pdf_file %}
+              <a
+                href="{{ ebook.pdf_file.url }}"
+                class="btn btn-secondary"
+                download
+              >
+                <i class="bi bi-file-earmark-pdf"></i> Download PDF
+              </a>
+              {% endif %} {% if ebook.audio_file %}
+              <a
+                href="{{ ebook.audio_file.url }}"
+                class="btn btn-secondary"
+                download
+              >
+                <i class="bi bi-file-earmark-music"></i> Download Audio
+              </a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
 {% endblock %}

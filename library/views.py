@@ -7,27 +7,26 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 def home(request):
-    return render(request, 'library/home.html')
+    breadcrumbs = [{'name': 'Home', 'url': '#'}]
+    return render(request, 'library/home.html', {'breadcrumbs': breadcrumbs})
 
 
 def ebook_list(request):
+    breadcrumbs = [
+        {'name': 'Home', 'url': '/'},
+        {'name': 'E-books', 'url': '/ebooks/'}
+    ]
     ebooks = Ebook.objects.all()
-    return render(request, 'library/ebook_list.html', {'ebooks': ebooks})
+    return render(request, 'library/ebook_list.html', {'breadcrumbs': breadcrumbs, 'ebooks': ebooks})
 
 
 def blog_list(request):
+    breadcrumbs = [
+        {'name': 'Home', 'url': '/'},
+        {'name': 'Blog', 'url': '/blog/'}
+    ]
     blog_posts = BlogPost.objects.all()
-    return render(request, 'library/blog_list.html', {'blog_posts': blog_posts})
-
-
-def ebook_detail(request, pk):
-    ebook = get_object_or_404(Ebook, pk=pk)
-    return render(request, 'library/ebook_detail.html', {'ebook': ebook})
-
-
-def blog_detail(request, pk):
-    post = get_object_or_404(BlogPost, pk=pk)
-    return render(request, 'library/blog_detail.html', {'post': post})
+    return render(request, 'library/blog_list.html', {'breadcrumbs': breadcrumbs, 'blog_posts': blog_posts})
 
 
 def download_ebook_pdf(request, pk):
@@ -57,21 +56,12 @@ def download_ebook_audio(request, pk):
 
 
 def resource_list(request):
+    breadcrumbs = [
+        {'name': 'Home', 'url': '/'},
+        {'name': 'Resources', 'url': '/resources/'}
+    ]
     resource_list = Resource.objects.order_by('id')
-    # print(resource_list)
-    paginator = Paginator(resource_list, 10)
-
-    page_number = request.GET.get('page')
-    try:
-        page_obj = paginator.page(page_number)
-    except PageNotAnInteger:
-        page_obj = paginator.page(1)
-    except EmptyPage:
-        page_obj = paginator.page(paginator.num_pages)
-
-    print(page_obj)
-    print(paginator)
-    context = {'resources': page_obj, 'paginator': paginator}
+    context = {'breadcrumbs': breadcrumbs, 'resources': resource_list}
     return render(request, 'library/resources.html', context)
 
 
