@@ -1,0 +1,27 @@
+{% extends 'library/base.html' %}
+
+{% block title %}Blog - Quantum Being Coach{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h2 class="my-4">Blog</h2>
+        <div class="row">
+            {% for post in blog_posts %}
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h3 class="card-title">
+                                <a href="{% url 'blog_detail' post.pk %}" class="text-decoration-none text-primary">
+                                    {{ post.title }}
+                                </a>
+                            </h3>
+                            <p class="card-text">
+                                {{ post.content|slice:":200" }}...
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

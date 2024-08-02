@@ -1,0 +1,25 @@
+{% extends 'library/base.html' %}
+
+{% block title %}E-books - Quantum Being Coach{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h2 class="my-4">E-books</h2>
+        <div class="row">
+            {% for ebook in ebooks %}
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h3 class="card-title">
+                                <a href="{% url 'ebook_detail' ebook.pk %}" class="text-decoration-none text-primary">
+                                    {{ ebook.title }}
+                                </a>
+                            </h3>
+                            <p class="card-text">{{ ebook.description }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
