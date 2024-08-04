@@ -1,7 +1,8 @@
 {% extends 'library/base.html' %} {% block title %}E-books - Quantum Being
 Coach{% endblock %} {% load static %} {% block content %}
 <div class="container my-5">
-  <h2 class="text-center mb-4">E-books</h2>
+  <h2 class="mb-4 pageTitle">E-books</h2>
+  <hr>
   <div class="row">
     {% for ebook in ebooks %}
     <div class="col-md-4 mb-4">

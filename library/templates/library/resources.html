@@ -4,11 +4,13 @@
 
 {% block content %}
 <div class="container my-4">
-  <h2 class="mb-4">Resources</h2>
+  <h2 class="mb-4 pageTitle">Resources</h2>
+  <hr>
   <div class="row">
     <!-- Column for Links -->
     <div class="col-md-6">
-      <h3 class="mb-3">Links</h3>
+      <h3 class="mb-3 pageTitle">Links</h3>
+      <hr>
       <ul class="list-group">
         {% for resource in resources %}
           {% if resource.resource_type == 'url' %}
@@ -22,7 +24,8 @@
     </div>
     <!-- Column for Books -->
     <div class="col-md-6">
-      <h3 class="mb-3">Books</h3>
+      <h3 class="mb-3 pageTitle">Books</h3>
+      <hr>
       <ul class="list-group">
         {% for resource in resources %}
           {% if resource.resource_type == 'file' %}

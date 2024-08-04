@@ -100,6 +100,18 @@
       .breadcrumb-item a:hover {
         color: #3b1e6f; /* Darker shade for hover effect */
       }
+
+      hr {
+        border: none;
+        height: 3px;
+        color: white;
+        background-color: #ffffff; /* Modern Browsers */
+      }
+
+      .pageTitle {
+        color: white;
+        text-align: left;
+      }
     </style>
   </head>
   <body>
@@ -110,7 +122,7 @@
         <a class="navbar-brand" href="{% url 'home' %}">
           <img
             class="rounded border"
-            src="{% static 'images/Logo.jpg' %}"
+            src="{% static 'images/background.jpg' %}"
             alt="Quantum Being Coach Logo"
           />
           IamDiscourse
@@ -172,9 +184,9 @@
 
     <main class="container my-4">{% block content %} {% endblock %}</main>
 
-    <footer class="text-center py-4 d-flex justify-content-center" >
+    <footer class="text-center py-4 d-flex justify-content-center">
       <div class="container footer-content">
-        <p class="lead mb-3 mt-3 text-center" style="font-weight: 400;">
+        <p class="lead mb-3 mt-3 text-center" style="font-weight: 400">
           Join us at Aima Being and Quantum Being Coach to immerse yourself in
           these transformative teachings and become part of the global movement
           towards enlightenment and ascension.
@@ -189,13 +201,12 @@
           <img
             src="{% static 'images/quantumLogo.jpg' %}"
             alt="Quantum Being Coach Logo"
-            style="max-height: 30px; border-radius: 30px; margin-right: 5px;"
+            style="max-height: 30px; border-radius: 30px; margin-right: 5px"
           />
           <p class="mb-0 me-3">Quantum Being Coach &copy; 2024</p>
         </div>
         <p class="mb-0 d-flex justify-content-center mt-5">
-          Powered by&nbsp;Pebble Technologies Ltd 
-          
+          Powered by&nbsp;Pebble Technologies Ltd
         </p>
       </div>
     </footer>
