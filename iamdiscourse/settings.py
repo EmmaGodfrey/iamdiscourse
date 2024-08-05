@@ -98,7 +98,6 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # Security settings
 CSRF_COOKIE_SECURE = True  # CSRF cookie secure in production
 SESSION_COOKIE_SECURE = True  # Session cookie secure in production
-ENABLE_ALPINE_PRIVATE_NETWORKING = True
 X_FRAME_OPTIONS = 'DENY'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
