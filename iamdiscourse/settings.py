@@ -1,3 +1,4 @@
+import os
 import dj_database_url
 from pathlib import Path
 from decouple import config
@@ -17,8 +18,12 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost', cast=lambda v: [
 
 # Database configuration
 DATABASES = {
-    'default': dj_database_url.config(default=config('DATABASE_URL'))
+    'default': dj_database_url.config(
+        default=os.environ.get('Postgres.DATABASE_URL'),
+        conn_max_age=1800
+    )
 }
+
 
 # Application definition
 INSTALLED_APPS = [
