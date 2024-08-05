@@ -15,8 +15,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the application code
 COPY . /app/
 
-# Expose the port Gunicorn will run on
-EXPOSE 8000
+# Copy the .env file.
+COPY .env /app/.env
+
+# Expose the port Gunicorn will run on.
+EXPOSE 8080
 
 # Start the application
 CMD ["gunicorn", "iamdiscourse.wsgi:application", "--bind", "0.0.0.0:8000"]
