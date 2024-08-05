@@ -1,5 +1,4 @@
 from pathlib import Path
-import dj_database_url
 from decouple import config, Csv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -58,7 +57,14 @@ WSGI_APPLICATION = 'iamdiscourse.wsgi.application'
 
 # Database configuration
 DATABASES = {
-    'default': dj_database_url.config(default=config('DATABASE_URL'))
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('PGDATABASE', default='postgres'),
+        'USER': config('PGUSER', default='postgres'),
+        'PASSWORD': config('PGPASSWORD', default='your-password'),
+        'HOST': config('PGHOST', default='localhost'),
+        'PORT': config('PGPORT', default='5432'),
+    }
 }
 
 # Password validation
