@@ -22,4 +22,4 @@ COPY .env /app/.env
 EXPOSE 8080
 
 # Start the application
-CMD ["gunicorn", "iamdiscourse.wsgi:application", "--bind", "0.0.0.0:8000"]
+CMD ["gunicorn", "iamdiscourse.wsgi:application", "--bind", "0.0.0.0:8080"]
