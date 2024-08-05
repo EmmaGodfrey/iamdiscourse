@@ -95,9 +95,9 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 # Security settings
-SECURE_SSL_REDIRECT = not DEBUG  # Redirect to HTTPS in production
-CSRF_COOKIE_SECURE = not DEBUG  # CSRF cookie secure in production
-SESSION_COOKIE_SECURE = not DEBUG  # Session cookie secure in production
+SECURE_SSL_REDIRECT = True  # Redirect to HTTPS in production
+CSRF_COOKIE_SECURE = True  # CSRF cookie secure in production
+SESSION_COOKIE_SECURE = True  # Session cookie secure in production
 X_FRAME_OPTIONS = 'DENY'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
