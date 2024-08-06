@@ -15,6 +15,3 @@ urlpatterns = [
     path('download/<int:file_id>/', views.download_file, name='download_file'),
 ]
 
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL,
-                          document_root=settings.MEDIA_ROOT)
