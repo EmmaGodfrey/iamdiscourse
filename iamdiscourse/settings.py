@@ -104,6 +104,7 @@ MEDIA_ROOT = os.environ["RAILWAY_VOLUME_MOUNT_PATH"]
 CSRF_COOKIE_SECURE = True 
 SESSION_COOKIE_SECURE = True 
 X_FRAME_OPTIONS = 'DENY'
-CSRF_TRUSTED_ORIGINS = ['https://web-production-ce53.up.railway.app']
+CSRF_TRUSTED_ORIGINS = [
+    'https://theiamdiscourses.org', 'https://theiamdiscourses.up.railway.app']
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
