@@ -104,6 +104,6 @@ MEDIA_ROOT = BASE_DIR / 'media'
 CSRF_COOKIE_SECURE = True 
 SESSION_COOKIE_SECURE = True 
 X_FRAME_OPTIONS = 'DENY'
-CSRF_TRUSTED_ORIGINS = ['https://web-production-ce53.up.railway.app/']
+CSRF_TRUSTED_ORIGINS = ['https://web-production-ce53.up.railway.app']
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
