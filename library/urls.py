@@ -1,7 +1,6 @@
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path
-from django.contrib.auth import views as auth_views
 from . import views
 
 urlpatterns = [
@@ -14,6 +13,5 @@ urlpatterns = [
     path('blog/', views.blog_list, name='blog_list'),
     path('resources/', views.resource_list, name='resources'),
     path('download/<int:file_id>/', views.download_file, name='download_file'),
-    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
 ]
 
