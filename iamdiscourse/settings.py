@@ -24,7 +24,6 @@ DATABASES = {
     )
 }
 
-
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -34,6 +33,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'library',  # Ensure your app is listed here
+    'jazzmin',  # Add django-jazzmin here
 ]
 
 MIDDLEWARE = [
@@ -108,3 +108,19 @@ CSRF_TRUSTED_ORIGINS = [
     'https://theiamdiscourses.org', 'https://theiamdiscourses.up.railway.app']
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Optional Jazzmin configuration
+# JAZZMIN_SETTINGS = {
+#     "site_title": "Your Site Title",
+#     "site_header": "Your Site Header",
+#     "site_brand": "Your Site Brand",
+#     "welcome_sign": "Welcome to the Admin Interface",
+#     "copyright": "Your Company Name",
+#     "search_model": ["auth.User", "auth.Group"],
+#     "user_avatar": "users/avatar.jpg",
+#     "topmenu_links": [
+#         {"name": "Home", "url": "admin:index",
+#             "permissions": ["auth.view_user"]},
+#         {"name": "Support", "url": "https://example.com", "new_window": True},
+#     ],
+# }
