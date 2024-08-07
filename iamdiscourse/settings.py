@@ -26,9 +26,9 @@ DATABASES = {
 
 # Application definition
 INSTALLED_APPS = [
-    'django.contrib.auth',
     'jazzmin',  # Add django-jazzmin here
     'django.contrib.admin',
+    'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -96,7 +96,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-LOGOUT_REDIRECT_URL = '/admin/login/'
 
 # Media files
 MEDIA_URL = "/media/"
@@ -122,3 +121,5 @@ JAZZMIN_SETTINGS = {
         {"name": "Home", "url": "/", "new_window": True},
     ],
 }
+
+LOGOUT_REDIRECT_URL = '/admin/login/'
