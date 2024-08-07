@@ -96,6 +96,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
+LOGOUT_REDIRECT_URL = '/admin/login/'
+
 # Media files
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.environ["RAILWAY_VOLUME_MOUNT_PATH"]
@@ -118,5 +120,6 @@ JAZZMIN_SETTINGS = {
     "copyright": "Aimabeing",
     "topmenu_links": [
         {"name": "Home", "url": "/", "new_window": True},
+        {"name": "Logout", "url": "/logout/", "new_window": False},
     ],
 }
