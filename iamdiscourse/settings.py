@@ -112,8 +112,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Optional Jazzmin configuration
 JAZZMIN_SETTINGS = {
     "site_title": "IamDiscourses",
-    "site_header": "Your Site Header",
-    "site_brand": "Your Site Brand",
+    "site_header": "IamDiscourses",
+    "site_brand": "IamDiscourses",
     "welcome_sign": "Welcome to the IamDiscourses Admin",
     "copyright": "Aimabeing",
     "topmenu_links": [
