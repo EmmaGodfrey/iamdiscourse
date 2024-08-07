@@ -26,9 +26,9 @@ DATABASES = {
 
 # Application definition
 INSTALLED_APPS = [
+    'django.contrib.auth',
     'jazzmin',  # Add django-jazzmin here
     'django.contrib.admin',
-    'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -120,6 +120,5 @@ JAZZMIN_SETTINGS = {
     "copyright": "Aimabeing",
     "topmenu_links": [
         {"name": "Home", "url": "/", "new_window": True},
-        {"name": "Logout", "url": "/logout/", "new_window": False},
     ],
 }
