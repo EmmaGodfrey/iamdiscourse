@@ -26,6 +26,7 @@ DATABASES = {
 
 # Application definition
 INSTALLED_APPS = [
+    'jazzmin',  # Add django-jazzmin here
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -33,7 +34,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'library',  # Ensure your app is listed here
-    'jazzmin',  # Add django-jazzmin here
 ]
 
 MIDDLEWARE = [
