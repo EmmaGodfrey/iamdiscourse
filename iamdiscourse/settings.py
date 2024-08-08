@@ -123,3 +123,4 @@ JAZZMIN_SETTINGS = {
 }
 
 LOGOUT_REDIRECT_URL = '/admin/login/'
+LOGIN_URL = '/admin/login/'
