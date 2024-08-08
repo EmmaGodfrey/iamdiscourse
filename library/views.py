@@ -60,8 +60,15 @@ def resource_list(request):
         {'name': 'Home', 'url': '/'},
         {'name': 'Resources', 'url': '/resources/'}
     ]
-    resource_list = Resource.objects.order_by('id')
-    context = {'breadcrumbs': breadcrumbs, 'resources': resource_list}
+    # Fetch all resources
+    all_resources = Resource.objects.all()
+
+    # Filter resources by type
+    links = all_resources.filter(resource_type='url')
+    books = all_resources.filter(resource_type='file')
+
+    context = {'breadcrumbs': breadcrumbs, 'links': links,
+               'books': books, }
     return render(request, 'library/resources.html', context)
 
 
