@@ -6,39 +6,48 @@
 <div class="container my-4">
   <h2 class="mb-4 pageTitle">Resources</h2>
   <hr>
-  <div class="row">
-    <!-- Column for Links -->
-    <div class="col-md-6">
-      <h3 class="mb-3 pageTitle">Links</h3>
-      <hr>
-      <ul class="list-group">
-        {% for resource in resources %}
-          {% if resource.resource_type == 'url' %}
-            <li class="list-group-item">
-              <a href="{{ resource.url }}" target="_blank" rel="noopener noreferrer">{{ resource.title }}</a>
-              <p class="mb-0">{{ resource.description }}</p>
-            </li>
+    <div class="row">
+      <!-- Column for Links -->
+      <div class="col-md-6">
+        <h3 class="mb-3 pageTitle">Links</h3>
+        <hr>
+        {% with resources|filter:"resource_type=url" as links %}
+          {% if links %}
+            <ul class="list-group">
+              {% for resource in links %}
+                <li class="list-group-item">
+                  <a href="{{ resource.url }}" target="_blank" rel="noopener noreferrer">{{ resource.title }}</a>
+                  <p class="mb-0">{{ resource.description }}</p>
+                </li>
+              {% endfor %}
+            </ul>
+          {% else %}
+            <p class="text-center">No links available</p>
           {% endif %}
-        {% endfor %}
-      </ul>
-    </div>
-    <!-- Column for Books -->
-    <div class="col-md-6">
-      <h3 class="mb-3 pageTitle">Books</h3>
-      <hr>
-      <ul class="list-group">
-        {% for resource in resources %}
-          {% if resource.resource_type == 'file' %}
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              <div>
-                <p class="mb-1">{{ resource.description }}</p>
-                <a class="btn btn-secondary" href="{{ resource.file.url }}" class="btn btn-custom-purple">Download</a>
-              </div>
-            </li>
+        {% endwith %}
+      </div>
+
+      <!-- Column for Books -->
+      <div class="col-md-6">
+        <h3 class="mb-3 pageTitle">Books</h3>
+        <hr>
+        {% with resources|filter:"resource_type=file" as books %}
+          {% if books %}
+            <ul class="list-group">
+              {% for resource in books %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  <div>
+                    <p class="mb-1">{{ resource.description }}</p>
+                    <a class="btn btn-secondary" href="{{ resource.file.url }}" class="btn btn-custom-purple">Download</a>
+                  </div>
+                </li>
+              {% endfor %}
+            </ul>
+          {% else %}
+            <p class="text-center">No books available</p>
           {% endif %}
-        {% endfor %}
-      </ul>
+        {% endwith %}
+      </div>
     </div>
-  </div>
 </div>
 {% endblock %}
