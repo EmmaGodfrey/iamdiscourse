@@ -119,7 +119,7 @@ JAZZMIN_SETTINGS = {
     "copyright": "Aimabeing",
     "topmenu_links": [
         {"name": "Home", "url": "/", "new_window": True},
-        {"name": "Logout", "url": "/admin/logout/", "new_window": False},
+        {"name": "Logout", "url": "/logout/", "new_window": False},
     ],
 }
 
