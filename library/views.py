@@ -1,9 +1,11 @@
 import os
 from urllib import response
 from django.http import FileResponse, Http404, HttpResponse, HttpResponseNotFound
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import redirect, render, get_object_or_404
 from .models import Ebook, BlogPost, Resource
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.contrib.auth import logout
+from django.views.decorators.csrf import csrf_protect
 
 
 def home(request):
@@ -86,3 +88,8 @@ def download_file(request, file_id):
             return response
     except FileNotFoundError:
         return HttpResponseNotFound('File not found')
+
+@csrf_protect
+def logout_view(request):
+    logout(request)
+    return redirect('/admin/')
