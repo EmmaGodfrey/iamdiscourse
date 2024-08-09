@@ -13,6 +13,6 @@ urlpatterns = [
     path('blog/', views.blog_list, name='blog_list'),
     path('resources/', views.resource_list, name='resources'),
     path('download/<int:file_id>/', views.download_file, name='download_file'),
-    path('/admin/logout/', views.logout_view, name='logout'),
+    path('admin/logout/', views.logout_view, name='logout'),
 ]
 
