@@ -121,5 +121,3 @@ JAZZMIN_SETTINGS = {
         {"name": "Logout", "url": "/logout/", "new_window": False},
     ],
 }
-
-LOGOUT_REDIRECT_URL = 'logout'
